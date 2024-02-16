@@ -13,7 +13,7 @@ Rcpp::Rostream<false>& Rcpp::Rcerr = Rcpp::Rcpp_cerr_get();
 
 // QuanUniForestFit
 List QuanUniForestFit(arma::mat& X, arma::vec& Y, arma::uvec& Ncat, arma::vec& obsweight, arma::vec& varweight, arma::imat& ObsTrack, List& param_r);
-RcppExport SEXP _RLT_QuanUniForestFit(SEXP XSEXP, SEXP YSEXP, SEXP NcatSEXP, SEXP obsweightSEXP, SEXP varweightSEXP, SEXP ObsTrackSEXP, SEXP param_rSEXP) {
+RcppExport SEXP _RLTquantile_QuanUniForestFit(SEXP XSEXP, SEXP YSEXP, SEXP NcatSEXP, SEXP obsweightSEXP, SEXP varweightSEXP, SEXP ObsTrackSEXP, SEXP param_rSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -30,7 +30,7 @@ END_RCPP
 }
 // ARMA_EMPTY_UMAT
 arma::umat ARMA_EMPTY_UMAT();
-RcppExport SEXP _RLT_ARMA_EMPTY_UMAT() {
+RcppExport SEXP _RLTquantile_ARMA_EMPTY_UMAT() {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -40,7 +40,7 @@ END_RCPP
 }
 // ARMA_EMPTY_VEC
 arma::vec ARMA_EMPTY_VEC();
-RcppExport SEXP _RLT_ARMA_EMPTY_VEC() {
+RcppExport SEXP _RLTquantile_ARMA_EMPTY_VEC() {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -50,7 +50,7 @@ END_RCPP
 }
 // mysample
 arma::uvec mysample(size_t Num, size_t min, size_t max, size_t seed);
-RcppExport SEXP _RLT_mysample(SEXP NumSEXP, SEXP minSEXP, SEXP maxSEXP, SEXP seedSEXP) {
+RcppExport SEXP _RLTquantile_mysample(SEXP NumSEXP, SEXP minSEXP, SEXP maxSEXP, SEXP seedSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -64,7 +64,7 @@ END_RCPP
 }
 // Kernel_Self
 List Kernel_Self(arma::field<arma::ivec>& SplitVar, arma::field<arma::vec>& SplitValue, arma::field<arma::uvec>& LeftNode, arma::field<arma::uvec>& RightNode, arma::mat& X, arma::uvec& Ncat, size_t verbose);
-RcppExport SEXP _RLT_Kernel_Self(SEXP SplitVarSEXP, SEXP SplitValueSEXP, SEXP LeftNodeSEXP, SEXP RightNodeSEXP, SEXP XSEXP, SEXP NcatSEXP, SEXP verboseSEXP) {
+RcppExport SEXP _RLTquantile_Kernel_Self(SEXP SplitVarSEXP, SEXP SplitValueSEXP, SEXP LeftNodeSEXP, SEXP RightNodeSEXP, SEXP XSEXP, SEXP NcatSEXP, SEXP verboseSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -81,7 +81,7 @@ END_RCPP
 }
 // Kernel_Cross
 List Kernel_Cross(arma::field<arma::ivec>& SplitVar, arma::field<arma::vec>& SplitValue, arma::field<arma::uvec>& LeftNode, arma::field<arma::uvec>& RightNode, arma::mat& X1, arma::mat& X2, arma::uvec& Ncat, size_t verbose);
-RcppExport SEXP _RLT_Kernel_Cross(SEXP SplitVarSEXP, SEXP SplitValueSEXP, SEXP LeftNodeSEXP, SEXP RightNodeSEXP, SEXP X1SEXP, SEXP X2SEXP, SEXP NcatSEXP, SEXP verboseSEXP) {
+RcppExport SEXP _RLTquantile_Kernel_Cross(SEXP SplitVarSEXP, SEXP SplitValueSEXP, SEXP LeftNodeSEXP, SEXP RightNodeSEXP, SEXP X1SEXP, SEXP X2SEXP, SEXP NcatSEXP, SEXP verboseSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -99,7 +99,7 @@ END_RCPP
 }
 // Kernel_Train
 List Kernel_Train(arma::field<arma::ivec>& SplitVar, arma::field<arma::vec>& SplitValue, arma::field<arma::uvec>& LeftNode, arma::field<arma::uvec>& RightNode, arma::mat& X1, arma::mat& X2, arma::uvec& Ncat, arma::imat& ObsTrack, size_t verbose);
-RcppExport SEXP _RLT_Kernel_Train(SEXP SplitVarSEXP, SEXP SplitValueSEXP, SEXP LeftNodeSEXP, SEXP RightNodeSEXP, SEXP X1SEXP, SEXP X2SEXP, SEXP NcatSEXP, SEXP ObsTrackSEXP, SEXP verboseSEXP) {
+RcppExport SEXP _RLTquantile_Kernel_Train(SEXP SplitVarSEXP, SEXP SplitValueSEXP, SEXP LeftNodeSEXP, SEXP RightNodeSEXP, SEXP X1SEXP, SEXP X2SEXP, SEXP NcatSEXP, SEXP ObsTrackSEXP, SEXP verboseSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -116,9 +116,46 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// Kernel_Self_OOB
+List Kernel_Self_OOB(arma::field<arma::ivec>& SplitVar, arma::field<arma::vec>& SplitValue, arma::field<arma::uvec>& LeftNode, arma::field<arma::uvec>& RightNode, arma::mat& X, arma::uvec& Ncat, arma::imat& ObsTrack, size_t verbose);
+RcppExport SEXP _RLTquantile_Kernel_Self_OOB(SEXP SplitVarSEXP, SEXP SplitValueSEXP, SEXP LeftNodeSEXP, SEXP RightNodeSEXP, SEXP XSEXP, SEXP NcatSEXP, SEXP ObsTrackSEXP, SEXP verboseSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< arma::field<arma::ivec>& >::type SplitVar(SplitVarSEXP);
+    Rcpp::traits::input_parameter< arma::field<arma::vec>& >::type SplitValue(SplitValueSEXP);
+    Rcpp::traits::input_parameter< arma::field<arma::uvec>& >::type LeftNode(LeftNodeSEXP);
+    Rcpp::traits::input_parameter< arma::field<arma::uvec>& >::type RightNode(RightNodeSEXP);
+    Rcpp::traits::input_parameter< arma::mat& >::type X(XSEXP);
+    Rcpp::traits::input_parameter< arma::uvec& >::type Ncat(NcatSEXP);
+    Rcpp::traits::input_parameter< arma::imat& >::type ObsTrack(ObsTrackSEXP);
+    Rcpp::traits::input_parameter< size_t >::type verbose(verboseSEXP);
+    rcpp_result_gen = Rcpp::wrap(Kernel_Self_OOB(SplitVar, SplitValue, LeftNode, RightNode, X, Ncat, ObsTrack, verbose));
+    return rcpp_result_gen;
+END_RCPP
+}
+// Kernel_Cross_OOB
+List Kernel_Cross_OOB(arma::field<arma::ivec>& SplitVar, arma::field<arma::vec>& SplitValue, arma::field<arma::uvec>& LeftNode, arma::field<arma::uvec>& RightNode, arma::mat& X1, arma::mat& X2, arma::uvec& Ncat, arma::imat& ObsTrack, size_t verbose);
+RcppExport SEXP _RLTquantile_Kernel_Cross_OOB(SEXP SplitVarSEXP, SEXP SplitValueSEXP, SEXP LeftNodeSEXP, SEXP RightNodeSEXP, SEXP X1SEXP, SEXP X2SEXP, SEXP NcatSEXP, SEXP ObsTrackSEXP, SEXP verboseSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< arma::field<arma::ivec>& >::type SplitVar(SplitVarSEXP);
+    Rcpp::traits::input_parameter< arma::field<arma::vec>& >::type SplitValue(SplitValueSEXP);
+    Rcpp::traits::input_parameter< arma::field<arma::uvec>& >::type LeftNode(LeftNodeSEXP);
+    Rcpp::traits::input_parameter< arma::field<arma::uvec>& >::type RightNode(RightNodeSEXP);
+    Rcpp::traits::input_parameter< arma::mat& >::type X1(X1SEXP);
+    Rcpp::traits::input_parameter< arma::mat& >::type X2(X2SEXP);
+    Rcpp::traits::input_parameter< arma::uvec& >::type Ncat(NcatSEXP);
+    Rcpp::traits::input_parameter< arma::imat& >::type ObsTrack(ObsTrackSEXP);
+    Rcpp::traits::input_parameter< size_t >::type verbose(verboseSEXP);
+    rcpp_result_gen = Rcpp::wrap(Kernel_Cross_OOB(SplitVar, SplitValue, LeftNode, RightNode, X1, X2, Ncat, ObsTrack, verbose));
+    return rcpp_result_gen;
+END_RCPP
+}
 // RegUniCombForestFit
 List RegUniCombForestFit(arma::mat& X, arma::vec& Y, arma::uvec& Ncat, arma::vec& obsweight, arma::vec& varweight, arma::imat& ObsTrack, List& param);
-RcppExport SEXP _RLT_RegUniCombForestFit(SEXP XSEXP, SEXP YSEXP, SEXP NcatSEXP, SEXP obsweightSEXP, SEXP varweightSEXP, SEXP ObsTrackSEXP, SEXP paramSEXP) {
+RcppExport SEXP _RLTquantile_RegUniCombForestFit(SEXP XSEXP, SEXP YSEXP, SEXP NcatSEXP, SEXP obsweightSEXP, SEXP varweightSEXP, SEXP ObsTrackSEXP, SEXP paramSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -135,7 +172,7 @@ END_RCPP
 }
 // RegUniForestFit
 List RegUniForestFit(arma::mat& X, arma::vec& Y, arma::uvec& Ncat, arma::vec& obsweight, arma::vec& varweight, arma::imat& ObsTrack, List& param_r);
-RcppExport SEXP _RLT_RegUniForestFit(SEXP XSEXP, SEXP YSEXP, SEXP NcatSEXP, SEXP obsweightSEXP, SEXP varweightSEXP, SEXP ObsTrackSEXP, SEXP param_rSEXP) {
+RcppExport SEXP _RLTquantile_RegUniForestFit(SEXP XSEXP, SEXP YSEXP, SEXP NcatSEXP, SEXP obsweightSEXP, SEXP varweightSEXP, SEXP ObsTrackSEXP, SEXP param_rSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -152,7 +189,7 @@ END_RCPP
 }
 // RegUniForestPred
 List RegUniForestPred(arma::field<arma::ivec>& SplitVar, arma::field<arma::vec>& SplitValue, arma::field<arma::uvec>& LeftNode, arma::field<arma::uvec>& RightNode, arma::field<arma::vec>& NodeAve, arma::mat& X, arma::uvec& Ncat, bool VarEst, bool keep_all, size_t usecores, size_t verbose);
-RcppExport SEXP _RLT_RegUniForestPred(SEXP SplitVarSEXP, SEXP SplitValueSEXP, SEXP LeftNodeSEXP, SEXP RightNodeSEXP, SEXP NodeAveSEXP, SEXP XSEXP, SEXP NcatSEXP, SEXP VarEstSEXP, SEXP keep_allSEXP, SEXP usecoresSEXP, SEXP verboseSEXP) {
+RcppExport SEXP _RLTquantile_RegUniForestPred(SEXP SplitVarSEXP, SEXP SplitValueSEXP, SEXP LeftNodeSEXP, SEXP RightNodeSEXP, SEXP NodeAveSEXP, SEXP XSEXP, SEXP NcatSEXP, SEXP VarEstSEXP, SEXP keep_allSEXP, SEXP usecoresSEXP, SEXP verboseSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -173,7 +210,7 @@ END_RCPP
 }
 // SurvUniForestFit
 List SurvUniForestFit(arma::mat& X, arma::uvec& Y, arma::uvec& Censor, arma::uvec& Ncat, arma::vec& obsweight, arma::vec& varweight, arma::imat& ObsTrack, List& param_r);
-RcppExport SEXP _RLT_SurvUniForestFit(SEXP XSEXP, SEXP YSEXP, SEXP CensorSEXP, SEXP NcatSEXP, SEXP obsweightSEXP, SEXP varweightSEXP, SEXP ObsTrackSEXP, SEXP param_rSEXP) {
+RcppExport SEXP _RLTquantile_SurvUniForestFit(SEXP XSEXP, SEXP YSEXP, SEXP CensorSEXP, SEXP NcatSEXP, SEXP obsweightSEXP, SEXP varweightSEXP, SEXP ObsTrackSEXP, SEXP param_rSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -191,7 +228,7 @@ END_RCPP
 }
 // SurvUniForestPred
 List SurvUniForestPred(arma::field<arma::ivec>& SplitVar, arma::field<arma::vec>& SplitValue, arma::field<arma::uvec>& LeftNode, arma::field<arma::uvec>& RightNode, arma::field<arma::field<arma::vec>>& NodeHaz, arma::mat& X, arma::uvec& Ncat, size_t& NFail, bool VarEst, bool keep_all, size_t usecores, size_t verbose);
-RcppExport SEXP _RLT_SurvUniForestPred(SEXP SplitVarSEXP, SEXP SplitValueSEXP, SEXP LeftNodeSEXP, SEXP RightNodeSEXP, SEXP NodeHazSEXP, SEXP XSEXP, SEXP NcatSEXP, SEXP NFailSEXP, SEXP VarEstSEXP, SEXP keep_allSEXP, SEXP usecoresSEXP, SEXP verboseSEXP) {
+RcppExport SEXP _RLTquantile_SurvUniForestPred(SEXP SplitVarSEXP, SEXP SplitValueSEXP, SEXP LeftNodeSEXP, SEXP RightNodeSEXP, SEXP NodeHazSEXP, SEXP XSEXP, SEXP NcatSEXP, SEXP NFailSEXP, SEXP VarEstSEXP, SEXP keep_allSEXP, SEXP usecoresSEXP, SEXP verboseSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -213,7 +250,7 @@ END_RCPP
 }
 // MvnCV
 arma::vec MvnCV(size_t& N, arma::vec& mean_vec, arma::mat& Cov_mat, arma::vec& var_vec);
-RcppExport SEXP _RLT_MvnCV(SEXP NSEXP, SEXP mean_vecSEXP, SEXP Cov_matSEXP, SEXP var_vecSEXP) {
+RcppExport SEXP _RLTquantile_MvnCV(SEXP NSEXP, SEXP mean_vecSEXP, SEXP Cov_matSEXP, SEXP var_vecSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -227,7 +264,7 @@ END_RCPP
 }
 // cindex_d
 double cindex_d(arma::vec& Y, arma::uvec& Censor, arma::vec& pred);
-RcppExport SEXP _RLT_cindex_d(SEXP YSEXP, SEXP CensorSEXP, SEXP predSEXP) {
+RcppExport SEXP _RLTquantile_cindex_d(SEXP YSEXP, SEXP CensorSEXP, SEXP predSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -240,24 +277,26 @@ END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
-    {"_RLT_QuanUniForestFit", (DL_FUNC) &_RLT_QuanUniForestFit, 7},
-    {"_RLT_ARMA_EMPTY_UMAT", (DL_FUNC) &_RLT_ARMA_EMPTY_UMAT, 0},
-    {"_RLT_ARMA_EMPTY_VEC", (DL_FUNC) &_RLT_ARMA_EMPTY_VEC, 0},
-    {"_RLT_mysample", (DL_FUNC) &_RLT_mysample, 4},
-    {"_RLT_Kernel_Self", (DL_FUNC) &_RLT_Kernel_Self, 7},
-    {"_RLT_Kernel_Cross", (DL_FUNC) &_RLT_Kernel_Cross, 8},
-    {"_RLT_Kernel_Train", (DL_FUNC) &_RLT_Kernel_Train, 9},
-    {"_RLT_RegUniCombForestFit", (DL_FUNC) &_RLT_RegUniCombForestFit, 7},
-    {"_RLT_RegUniForestFit", (DL_FUNC) &_RLT_RegUniForestFit, 7},
-    {"_RLT_RegUniForestPred", (DL_FUNC) &_RLT_RegUniForestPred, 11},
-    {"_RLT_SurvUniForestFit", (DL_FUNC) &_RLT_SurvUniForestFit, 8},
-    {"_RLT_SurvUniForestPred", (DL_FUNC) &_RLT_SurvUniForestPred, 12},
-    {"_RLT_MvnCV", (DL_FUNC) &_RLT_MvnCV, 4},
-    {"_RLT_cindex_d", (DL_FUNC) &_RLT_cindex_d, 3},
+    {"_RLTquantile_QuanUniForestFit", (DL_FUNC) &_RLTquantile_QuanUniForestFit, 7},
+    {"_RLTquantile_ARMA_EMPTY_UMAT", (DL_FUNC) &_RLTquantile_ARMA_EMPTY_UMAT, 0},
+    {"_RLTquantile_ARMA_EMPTY_VEC", (DL_FUNC) &_RLTquantile_ARMA_EMPTY_VEC, 0},
+    {"_RLTquantile_mysample", (DL_FUNC) &_RLTquantile_mysample, 4},
+    {"_RLTquantile_Kernel_Self", (DL_FUNC) &_RLTquantile_Kernel_Self, 7},
+    {"_RLTquantile_Kernel_Cross", (DL_FUNC) &_RLTquantile_Kernel_Cross, 8},
+    {"_RLTquantile_Kernel_Train", (DL_FUNC) &_RLTquantile_Kernel_Train, 9},
+    {"_RLTquantile_Kernel_Self_OOB", (DL_FUNC) &_RLTquantile_Kernel_Self_OOB, 8},
+    {"_RLTquantile_Kernel_Cross_OOB", (DL_FUNC) &_RLTquantile_Kernel_Cross_OOB, 9},
+    {"_RLTquantile_RegUniCombForestFit", (DL_FUNC) &_RLTquantile_RegUniCombForestFit, 7},
+    {"_RLTquantile_RegUniForestFit", (DL_FUNC) &_RLTquantile_RegUniForestFit, 7},
+    {"_RLTquantile_RegUniForestPred", (DL_FUNC) &_RLTquantile_RegUniForestPred, 11},
+    {"_RLTquantile_SurvUniForestFit", (DL_FUNC) &_RLTquantile_SurvUniForestFit, 8},
+    {"_RLTquantile_SurvUniForestPred", (DL_FUNC) &_RLTquantile_SurvUniForestPred, 12},
+    {"_RLTquantile_MvnCV", (DL_FUNC) &_RLTquantile_MvnCV, 4},
+    {"_RLTquantile_cindex_d", (DL_FUNC) &_RLTquantile_cindex_d, 3},
     {NULL, NULL, 0}
 };
 
-RcppExport void R_init_RLT(DllInfo *dll) {
+RcppExport void R_init_RLTquantile(DllInfo *dll) {
     R_registerRoutines(dll, NULL, CallEntries, NULL, NULL);
     R_useDynamicSymbols(dll, FALSE);
 }

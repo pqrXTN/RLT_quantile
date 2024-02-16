@@ -8,7 +8,7 @@ library(parallel)
 
 set.seed(1)
 
-trainn = 10000
+trainn = 1000
 testn = 1000
 n = trainn + testn
 p = 40

@@ -2,64 +2,72 @@
 # Generator token: 10BE3573-1514-4C36-9D1C-5A225CD40393
 
 QuanUniForestFit <- function(X, Y, Ncat, obsweight, varweight, ObsTrack, param_r) {
-    .Call('_RLT_QuanUniForestFit', PACKAGE = 'RLT', X, Y, Ncat, obsweight, varweight, ObsTrack, param_r)
+    .Call('_RLTquantile_QuanUniForestFit', PACKAGE = 'RLTquantile', X, Y, Ncat, obsweight, varweight, ObsTrack, param_r)
 }
 
 #' @useDynLib RLT
 #' @importFrom Rcpp sourceCpp
 ARMA_EMPTY_UMAT <- function() {
-    .Call('_RLT_ARMA_EMPTY_UMAT', PACKAGE = 'RLT')
+    .Call('_RLTquantile_ARMA_EMPTY_UMAT', PACKAGE = 'RLTquantile')
 }
 
 #' @useDynLib RLT
 #' @importFrom Rcpp sourceCpp
 ARMA_EMPTY_VEC <- function() {
-    .Call('_RLT_ARMA_EMPTY_VEC', PACKAGE = 'RLT')
+    .Call('_RLTquantile_ARMA_EMPTY_VEC', PACKAGE = 'RLTquantile')
 }
 
 #' @useDynLib RLT
 #' @importFrom Rcpp sourceCpp
 mysample <- function(Num, min, max, seed) {
-    .Call('_RLT_mysample', PACKAGE = 'RLT', Num, min, max, seed)
+    .Call('_RLTquantile_mysample', PACKAGE = 'RLTquantile', Num, min, max, seed)
 }
 
 Kernel_Self <- function(SplitVar, SplitValue, LeftNode, RightNode, X, Ncat, verbose) {
-    .Call('_RLT_Kernel_Self', PACKAGE = 'RLT', SplitVar, SplitValue, LeftNode, RightNode, X, Ncat, verbose)
+    .Call('_RLTquantile_Kernel_Self', PACKAGE = 'RLTquantile', SplitVar, SplitValue, LeftNode, RightNode, X, Ncat, verbose)
 }
 
 Kernel_Cross <- function(SplitVar, SplitValue, LeftNode, RightNode, X1, X2, Ncat, verbose) {
-    .Call('_RLT_Kernel_Cross', PACKAGE = 'RLT', SplitVar, SplitValue, LeftNode, RightNode, X1, X2, Ncat, verbose)
+    .Call('_RLTquantile_Kernel_Cross', PACKAGE = 'RLTquantile', SplitVar, SplitValue, LeftNode, RightNode, X1, X2, Ncat, verbose)
 }
 
 Kernel_Train <- function(SplitVar, SplitValue, LeftNode, RightNode, X1, X2, Ncat, ObsTrack, verbose) {
-    .Call('_RLT_Kernel_Train', PACKAGE = 'RLT', SplitVar, SplitValue, LeftNode, RightNode, X1, X2, Ncat, ObsTrack, verbose)
+    .Call('_RLTquantile_Kernel_Train', PACKAGE = 'RLTquantile', SplitVar, SplitValue, LeftNode, RightNode, X1, X2, Ncat, ObsTrack, verbose)
+}
+
+Kernel_Self_OOB <- function(SplitVar, SplitValue, LeftNode, RightNode, X, Ncat, ObsTrack, verbose) {
+    .Call('_RLTquantile_Kernel_Self_OOB', PACKAGE = 'RLTquantile', SplitVar, SplitValue, LeftNode, RightNode, X, Ncat, ObsTrack, verbose)
+}
+
+Kernel_Cross_OOB <- function(SplitVar, SplitValue, LeftNode, RightNode, X1, X2, Ncat, ObsTrack, verbose) {
+    .Call('_RLTquantile_Kernel_Cross_OOB', PACKAGE = 'RLTquantile', SplitVar, SplitValue, LeftNode, RightNode, X1, X2, Ncat, ObsTrack, verbose)
 }
 
 RegUniCombForestFit <- function(X, Y, Ncat, obsweight, varweight, ObsTrack, param) {
-    .Call('_RLT_RegUniCombForestFit', PACKAGE = 'RLT', X, Y, Ncat, obsweight, varweight, ObsTrack, param)
+    .Call('_RLTquantile_RegUniCombForestFit', PACKAGE = 'RLTquantile', X, Y, Ncat, obsweight, varweight, ObsTrack, param)
 }
 
 RegUniForestFit <- function(X, Y, Ncat, obsweight, varweight, ObsTrack, param_r) {
-    .Call('_RLT_RegUniForestFit', PACKAGE = 'RLT', X, Y, Ncat, obsweight, varweight, ObsTrack, param_r)
+    .Call('_RLTquantile_RegUniForestFit', PACKAGE = 'RLTquantile', X, Y, Ncat, obsweight, varweight, ObsTrack, param_r)
 }
 
 RegUniForestPred <- function(SplitVar, SplitValue, LeftNode, RightNode, NodeAve, X, Ncat, VarEst, keep_all, usecores, verbose) {
-    .Call('_RLT_RegUniForestPred', PACKAGE = 'RLT', SplitVar, SplitValue, LeftNode, RightNode, NodeAve, X, Ncat, VarEst, keep_all, usecores, verbose)
+    .Call('_RLTquantile_RegUniForestPred', PACKAGE = 'RLTquantile', SplitVar, SplitValue, LeftNode, RightNode, NodeAve, X, Ncat, VarEst, keep_all, usecores, verbose)
 }
 
 SurvUniForestFit <- function(X, Y, Censor, Ncat, obsweight, varweight, ObsTrack, param_r) {
-    .Call('_RLT_SurvUniForestFit', PACKAGE = 'RLT', X, Y, Censor, Ncat, obsweight, varweight, ObsTrack, param_r)
+    .Call('_RLTquantile_SurvUniForestFit', PACKAGE = 'RLTquantile', X, Y, Censor, Ncat, obsweight, varweight, ObsTrack, param_r)
 }
 
 SurvUniForestPred <- function(SplitVar, SplitValue, LeftNode, RightNode, NodeHaz, X, Ncat, NFail, VarEst, keep_all, usecores, verbose) {
-    .Call('_RLT_SurvUniForestPred', PACKAGE = 'RLT', SplitVar, SplitValue, LeftNode, RightNode, NodeHaz, X, Ncat, NFail, VarEst, keep_all, usecores, verbose)
+    .Call('_RLTquantile_SurvUniForestPred', PACKAGE = 'RLTquantile', SplitVar, SplitValue, LeftNode, RightNode, NodeHaz, X, Ncat, NFail, VarEst, keep_all, usecores, verbose)
 }
 
 MvnCV <- function(N, mean_vec, Cov_mat, var_vec) {
-    .Call('_RLT_MvnCV', PACKAGE = 'RLT', N, mean_vec, Cov_mat, var_vec)
+    .Call('_RLTquantile_MvnCV', PACKAGE = 'RLTquantile', N, mean_vec, Cov_mat, var_vec)
 }
 
 cindex_d <- function(Y, Censor, pred) {
-    .Call('_RLT_cindex_d', PACKAGE = 'RLT', Y, Censor, pred)
+    .Call('_RLTquantile_cindex_d', PACKAGE = 'RLTquantile', Y, Censor, pred)
 }
 

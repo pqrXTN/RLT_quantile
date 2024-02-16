@@ -74,7 +74,14 @@ void Quan_Uni_Forest_Build(const RLT_REG_DATA& REG_DATA,
       //If ObsTrack isn't given, set ObsTrack
       if (!obs_track_pre)
         set_obstrack(ObsTrack, nt, size, replacement, rngl);
-      
+
+      // sort inbagObs based on Y values
+      // const vec& Y = REG_DATA.Y;
+      // std::sort(inbag_id.begin(), inbag_id.end(), [Y](size_t i, size_t j)
+      // {
+      //   return Y(i) < Y(j);
+      // });
+      // 
       // Find the samples from pre-defined ObsTrack
       get_samples(inbag_id, oobagObs, obs_id, ObsTrack.unsafe_col(nt));
 

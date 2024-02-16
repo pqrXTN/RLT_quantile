@@ -17,7 +17,19 @@
 #' @param vs.train  To calculate the kernel weights with respect to the training data. 
 #'                  This is slightly different than supplying the training data to \code{X2}
 #'                  due to re-samplings of the training process. Hence, \code{ObsTrack} must
-#'                  be available from the fitted object (using \code{resample.track = TRUE}). 
+#'                  be available from the fitted object (using \code{resample.track = TRUE}).
+#'                  
+#' @param OOB       If \code{TRUE}, use OOB trees to estimate kernel and normalize the result,
+#'                  and force \code{vs.train = FALSE}, since sample A cannot be both OOB and InB. 
+#'                  1)  When \code{X2} is \code{null}, assume \code{X1} are all training data.
+#'                  return (kernel / OOB_count) + I. \code{OOB_count[i, j]} is the number of 
+#'                  trees that both i and j are not in the tree, i.e., OOB.
+#'                  Note that we replace 0 in OOB_count by 1 to avoid 0 / 0.
+#'                  2) When \code{X2} is not \code{null}, assume  \code{X2} are all training data.
+#'                  return (kernel / OOB_count). OOB_count[i, j] the number of trees that j-th
+#'                  sample in X2 are not in the tree. So each row of OOB_count are the same.
+#' @param ObsTrack  Default is \code{NULL} and use the \eqn{ObsTrack_{n_train \times ntrees}} 
+#'                  for fitted RLT object. If given \code{ObsTrack}, then override it.
 #' 
 #' @param verbose   Whether fitting should be printed.
 #' 
@@ -29,6 +41,8 @@ forest.kernel <- function(object,
                           X2 = NULL,
                           vs.train = FALSE,
                           verbose = FALSE,
+                          OOB = FALSE,
+                          ObsTrack = NULL,
                           ...)
 {
   if( class(object)[2] != "fit" )
@@ -38,6 +52,28 @@ forest.kernel <- function(object,
     stop("self-kernel is not implemented yet.")
 
   if (!is.matrix(X1) & !is.data.frame(X1)) stop("X1 must be a matrix or a data.frame")
+  
+  if (OOB){
+    vs.train = FALSE
+  }
+  
+  # check if the ObsTrack is provided in object when train or OOB
+  if (vs.train | OOB){
+    if (is.null(ObsTrack)){
+      # use the ObsTrack from the RLT object
+      if ( is.null(object$ObsTrack) ){
+        stop("Must have ObsTrack to perform vs.train or OOB. Please enable it in RLT")
+      }
+      else{
+        ObsTrack = object$ObsTrack
+      }
+    }else{
+      # use the given ObsTrack
+      ObsTrack = ObsTrack
+    }
+
+  }
+
 
     
     # check X1 data 
@@ -57,16 +93,28 @@ forest.kernel <- function(object,
     
     X1 <- data.matrix(X1)
     
-    if (is.null(X2))
-    {
-      K <- Kernel_Self(object$FittedForest$SplitVar,
-                          object$FittedForest$SplitValue,
-                          object$FittedForest$LeftNode,
-                          object$FittedForest$RightNode,
-                          X1,
-                          object$ncat,
-                          verbose)
-      
+    if (is.null(X2)){
+      if (!OOB){
+        K <- Kernel_Self(object$FittedForest$SplitVar,
+                         object$FittedForest$SplitValue,
+                         object$FittedForest$LeftNode,
+                         object$FittedForest$RightNode,
+                         X1,
+                         object$ncat,
+                         verbose)
+      }else{
+        # OOB self kernel for training data
+        if (nrow(ObsTrack) != nrow(X1))
+          stop("X1 must be the original training data for OOB trainingkernel weight")
+        K <- Kernel_Self_OOB(object$FittedForest$SplitVar,
+                             object$FittedForest$SplitValue,
+                             object$FittedForest$LeftNode,
+                             object$FittedForest$RightNode,
+                             X1,
+                             object$ncat,
+                             ObsTrack,
+                             verbose);
+      }
       class(K) <- c("RLT", "kernel", "self")
       
     }else{
@@ -92,30 +140,38 @@ forest.kernel <- function(object,
       
       X2 <- data.matrix(X2)
       
-      if (!vs.train)
-      {
-        # cross-kernel of X1 and X2
-    
-        K <- Kernel_Cross(object$FittedForest$SplitVar,
-                             object$FittedForest$SplitValue,
-                             object$FittedForest$LeftNode,
-                             object$FittedForest$RightNode,
-                             X1,
-                             X2,
-                             object$ncat,
-                             verbose)
+      if (!vs.train){
+        if (!OOB){
+          # cross-kernel of X1 and X2
+          K <- Kernel_Cross(object$FittedForest$SplitVar,
+                            object$FittedForest$SplitValue,
+                            object$FittedForest$LeftNode,
+                            object$FittedForest$RightNode,
+                            X1,
+                            X2,
+                            object$ncat,
+                            verbose)
+        }else{
+          # cross-kernel of X1 and X2, use OOB trees for X2 
+          
+          if (nrow(ObsTrack) != nrow(X2))
+            stop("X2 must be the original training data for OOB kernel weight")
+          K <- Kernel_Cross_OOB(object$FittedForest$SplitVar,
+                                object$FittedForest$SplitValue,
+                                object$FittedForest$LeftNode,
+                                object$FittedForest$RightNode,
+                                X1,
+                                X2,
+                                object$ncat,
+                                ObsTrack,
+                                verbose)
+        }
     
         class(K) <- c("RLT", "kernel", "cross")
         
       }else{
-        
         # kernel matrix as to the training process 
-        # ObsTrack must be provided 
-        if ( is.null(object$ObsTrack) )
-          stop("Must have ObsTrack to perform vs.train")
-      
-        ObsTrack = object$ObsTrack
-      
+        
         if (nrow(ObsTrack) != nrow(X2))
           stop("X2 must be the original training data")
         

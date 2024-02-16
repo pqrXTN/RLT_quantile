@@ -66,8 +66,20 @@ void Quan_Uni_Split_Cont(Split_Class& TempSplit,
 
 
 //Calculate a KS score at a random cut
-double quan_uni_cont_score_cut_sub(const uvec& obs_id,
-                                   const vec& x,
-                                   const vec& Y,
+double quan_uni_cont_score_cut_sub(const vec& x_sub,
+                                   const vec& y_sub,
                                    double a_random_cut);
+
+// find the best split point based on KS score
+void quan_uni_cont_score_best_sub(uvec& indices,
+                                 const vec& x,
+                                 const vec& Y,
+                                 size_t lowindex, 
+                                 size_t highindex, 
+                                 double& temp_cut, 
+                                 double& temp_score);
+
+// calculate a KS score given two sets of samples.
+double get_ks_score(vec& samples1, vec& samples2);
+
 #endif
