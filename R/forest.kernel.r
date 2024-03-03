@@ -22,7 +22,7 @@
 #' @param OOB       If \code{TRUE}, use OOB trees to estimate kernel and normalize the result,
 #'                  and force \code{vs.train = FALSE}, since sample A cannot be both OOB and InB. 
 #'                  1)  When \code{X2} is \code{null}, assume \code{X1} are all training data.
-#'                  return (kernel / OOB_count) + I. \code{OOB_count[i, j]} is the number of 
+#'                  return off-diag(kernel / OOB_count) + I. \code{OOB_count[i, j]} is the number of 
 #'                  trees that both i and j are not in the tree, i.e., OOB.
 #'                  Note that we replace 0 in OOB_count by 1 to avoid 0 / 0.
 #'                  2) When \code{X2} is not \code{null}, assume  \code{X2} are all training data.

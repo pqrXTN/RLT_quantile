@@ -30,5 +30,5 @@ Imports: Rcpp (>= 1.0.2)
 LinkingTo: Rcpp, RcppArmadillo, dqrng, BH, sitmo
 URL: https://cran.r-project.org/package=RLT,
     https://teazrq.github.io/RLT/
-RoxygenNote: 7.1.2
+RoxygenNote: 7.2.1
 Roxygen: list(markdown = TRUE)

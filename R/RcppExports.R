@@ -43,6 +43,10 @@ Kernel_Cross_OOB <- function(SplitVar, SplitValue, LeftNode, RightNode, X1, X2, 
     .Call('_RLTquantile_Kernel_Cross_OOB', PACKAGE = 'RLTquantile', SplitVar, SplitValue, LeftNode, RightNode, X1, X2, Ncat, ObsTrack, verbose)
 }
 
+Kernel_Train_Self_OOB <- function(SplitVar, SplitValue, LeftNode, RightNode, train_X, Ncat, ObsTrack, verbose) {
+    .Call('_RLTquantile_Kernel_Train_Self_OOB', PACKAGE = 'RLTquantile', SplitVar, SplitValue, LeftNode, RightNode, train_X, Ncat, ObsTrack, verbose)
+}
+
 RegUniCombForestFit <- function(X, Y, Ncat, obsweight, varweight, ObsTrack, param) {
     .Call('_RLTquantile_RegUniCombForestFit', PACKAGE = 'RLTquantile', X, Y, Ncat, obsweight, varweight, ObsTrack, param)
 }

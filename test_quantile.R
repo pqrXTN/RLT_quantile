@@ -1,4 +1,4 @@
-library(RLT)
+library(RLTquantile)
 
 set.seed(1)
 n = 2000
